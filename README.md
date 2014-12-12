@@ -8,7 +8,7 @@ Provides command line access to http://www.Contactually.com CRM data. The Contac
 
 2.) Install the gem:
 
-    $ gem install contactually
+    $ gem install contactually-cmd
 
 ## Usage
 
