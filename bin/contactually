@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'contactually'
+
+tasks = Contactually::Tasks.new
+put tasks.list
