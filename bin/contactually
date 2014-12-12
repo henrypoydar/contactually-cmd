@@ -1,6 +1,32 @@
 #!/usr/bin/env ruby
 
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'optparse'
 require 'contactually'
 
-tasks = Contactually::Tasks.new
-put tasks.list
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: contactually [options]"
+
+  opts.on( '-t', '--tasks', 'List all tasks' ) do
+    options[:tasks] = true
+  end
+
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+
+end.parse!
+
+begin
+  api_key = File.open(File.expand_path("~/.contactually"), "rb").read.chomp
+rescue Errno::ENOENT
+  puts "You need to store your Contactually API key as one line in ~/.contactually"
+  exit
+end
+
+c = Contactually::Tasks.new(api_key)
+c.list
