@@ -4,23 +4,15 @@ Provides command line access to http://www.Contactually.com CRM data. The Contac
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1.) Put your API key in `~/.contactually`
 
-```ruby
-gem 'contactually'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+2.) Install the gem:
 
     $ gem install contactually
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ contactually -h
 
 ## Contributing
 
